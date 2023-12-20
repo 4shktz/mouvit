@@ -26,6 +26,12 @@ document.addEventListener('keydown', (e) => {
             break;
     }
 
+    if (left < 0 || left > window.innerWidth || top < 0 || top > window.innerHeight) {
+        alert('Vous avez touché un mur. Vous avez perdu !!');
+        // TODO : REMETTRE LE JOUEUR A LA POSITION PAR DEFAUT 
+        return; 
+    }
+
     cursor.style.left = left + 'px';
     cursor.style.top = top + 'px';
 
@@ -101,5 +107,3 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
-
-// TODO : METTRE FIN AU JEU LORSQUE LE JOUEUR PREND UN MUR (BORDURE)
