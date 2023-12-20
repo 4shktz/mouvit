@@ -43,7 +43,7 @@ document.addEventListener('keydown', (e) => {
         let bonusLeft = parseInt(bonus.style.left) || 0;
         let bonusTop = parseInt(bonus.style.top) || 0;
 
-        if (Math.abs(left - bonusLeft) <= 10 && Math.abs(top - bonusTop) <= 10) {
+        if (Math.abs(left - bonusLeft) <= 40 && Math.abs(top - bonusTop) <= 40) {
             cursor.style.width = parseInt(cursor.style.width) + 10 + 'px'; // not changing width
             cursor.style.height = parseInt(cursor.style.height) + 10 + 'px'; // not changing height
             console.log('Bonus!');
