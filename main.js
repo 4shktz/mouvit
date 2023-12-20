@@ -28,7 +28,7 @@ document.addEventListener('keydown', (e) => {
 
     if (left < 0 || left > window.innerWidth || top < 0 || top > window.innerHeight) {
         alert('Vous avez touché un mur. Vous avez perdu !!');
-        // TODO : REMETTRE LE JOUEUR A LA POSITION PAR DEFAUT 
+        window.location.reload();
         return; 
     }
 
