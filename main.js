@@ -22,5 +22,22 @@ document.addEventListener('keydown', function(e) {
   
     cursor.style.left = left + 'px';
     cursor.style.top = top + 'px';
+
+    function HeightBonus() {
+        let bonus = document.createElement('div');
+        bonus.id = 'bonus';
+        bonus.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        bonus.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+        document.body.appendChild(bonus);
+    
+        bonus.addEventListener('click', () => {
+            cursor.style.width = parseInt(cursor.style.width) + 10 + 'px';
+            cursor.style.height = parseInt(cursor.style.height) + 10 + 'px';
+            document.body.removeChild(bonus);
+        });
+    }
+    
+    if (Math.random() < 0.01) {
+        HeightBonus();
+    }
 });
-  
