@@ -44,15 +44,18 @@ document.addEventListener('keydown', (e) => {
         let bonusTop = parseInt(bonus.style.top) || 0;
 
         if (Math.abs(left - bonusLeft) <= 40 && Math.abs(top - bonusTop) <= 40) {
-            cursor.style.width = parseInt(cursor.style.width) + 10 + 'px'; // not changing width
-            cursor.style.height = parseInt(cursor.style.height) + 10 + 'px'; // not changing height
+            cursor.style.width = (parseInt(cursor.style.width) + 10) + 'px';
+            cursor.style.height = (parseInt(cursor.style.height) + 10) + 'px';
             console.log('Bonus!');
             document.body.removeChild(bonus);
+            HeightBonus();
         }
     }
 
-    if (Math.random() < 0.01) {
-        HeightBonus();
+    if (!bonus) {
+        if (Math.random() < 1) {
+            HeightBonus();
+        }
     }
 });
 
@@ -72,21 +75,21 @@ document.addEventListener('keydown', (e) => {
             infoDiv.style.borderRadius = '5px';
 
             let vitesseInfo = document.createElement('p');
-            vitesseInfo.textContent = `Vitesse: ${speed}`; 
+            vitesseInfo.textContent = `Vitesse: ${speed}`;
 
             let lessBtn = document.createElement('button');
             lessBtn.textContent = '-';
             lessBtn.addEventListener('click', () => {
                 speed -= 5;
                 vitesseInfo.textContent = `Vitesse: ${speed}`;
-                console.log(speed); 
+                console.log(speed);
             });
 
             let moreBtn = document.createElement('button');
             moreBtn.textContent = '+';
             moreBtn.addEventListener('click', () => {
-                speed += 5; 
-                vitesseInfo.textContent = `Vitesse: ${speed}`; 
+                speed += 5;
+                vitesseInfo.textContent = `Vitesse: ${speed}`;
                 console.log(speed);
             });
 
@@ -99,4 +102,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// TODO : METTRE FIN AU JEU LORSQUE LE JOUEUR PREND UN MUR 
+// TODO : METTRE FIN AU JEU LORSQUE LE JOUEUR PREND UN MUR (BORDURE)
